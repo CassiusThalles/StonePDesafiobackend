@@ -8,7 +8,7 @@ from rest_framework.authtoken.models import Token
 class Funcionario(models.Model):
     nome = models.CharField(max_length=200)
     idade = models.IntegerField()
-    cargo = models.CharField(max_length=15)
+    cargo = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nome
