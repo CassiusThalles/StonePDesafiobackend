@@ -1,14 +1,14 @@
 from rest_framework import decorators
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.authentication import TokenAuthentication
 from .serializers import FuncionarioSerializer
 from .models import Funcionario
 
 class FuncionariosViewSet(ModelViewSet):
     serializer_class = FuncionarioSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     authentication_classes = (TokenAuthentication,)
 
     def get_queryset(self):
